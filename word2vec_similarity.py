@@ -53,7 +53,7 @@ cmd = """
     -output data/embedding \
     -minCount 0 -wordNgrams 0 -minn 0 -maxn 0 \
     -lr 0.01 -lrUpdateRate 10000 -dim 64 -ws 12 \
-    -epoch 5000 -neg 5 -thread 15 -seed 42
+    -epoch 500 -neg 5 -thread 15 -seed 42
 """
 os.system(cmd)
 
