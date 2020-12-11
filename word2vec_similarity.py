@@ -127,6 +127,19 @@ labels  = cluster.fit_predict(reprs)
 # Aims: merge similar docs and normalize
 ############################################
 
+import re
+
+def strip_dirty_words(content):
+    clean = re.sub("[^a-z ]+", "", content)
+    # self-defined replacing rules
+    # clean = (clean.replace("the", "")
+    #               .replace("th ", " ")
+    clean = re.sub("[ ]{2,}", " ", clean)
+    
+    return " ".join([word for word in clean.split(" ") 
+                     if len(word) > 1])
+
+
 import Levenshtein as lvs
 
 def get_common_content(str_a, str_b):
@@ -161,7 +174,7 @@ def gen_linking_dict(labels, index_map):
     for idx, lab in enumerate(labels):
         element = index_map[idx]
         if lab == -1:
-            linking_dict[element] = element
+            linking_dict[element] = strip_dirty_words(element)
         else:
             cluster_dict[lab].append(index_map[idx])
         
@@ -171,6 +184,7 @@ def gen_linking_dict(labels, index_map):
             if len(element) > len(title):
                 title = element
                 
+        title = strip_dirty_words(title)
         for element in elements:
             linking_dict[element] = title
             
