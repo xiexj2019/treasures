@@ -184,7 +184,7 @@ def gen_linking_dict(labels, index_map):
             if len(element) > len(title):
                 title = element
                 
-        title = strip_dirty_words(title)
+        title = normalize_cluster_title(elements)
         for element in elements:
             linking_dict[element] = title
             
