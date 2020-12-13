@@ -1,4 +1,6 @@
 
+# docs = [...]
+
 ############################################
 # Step 1: use sentencepiece to remake docs
 # Aims:
