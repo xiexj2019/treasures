@@ -145,6 +145,9 @@ def strip_dirty_words(content):
 import Levenshtein as lvs
 
 def get_common_content(str_a, str_b):
+    if len(str_a) == len(str_b):
+        return str_a
+    
     matching_blocks = lvs.matching_blocks(
         lvs.editops(str_a, str_b), str_a, str_b)
 
@@ -159,6 +162,9 @@ def normalize_cluster_title(elements):
     
     for _ in range(5):
         elm_str1, elm_str2 = random.choices(elements, k=2)
+        if elm_str1 == elm_str2:
+            continue
+            
         clean = get_common_content(elm_str1, elm_str2)
         
         if len(clean) > len(title):
