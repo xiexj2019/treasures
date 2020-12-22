@@ -150,7 +150,7 @@ def worker(targets):
                 pretrained_vectors, 64)
                 
             # distances and indices
-            dst, idx = nsn.space.kneighbors([tgt])
+            dst, idx = nsn.kneighbors([tgt])
         
         # fout.write(... + "\n")
 
