@@ -126,7 +126,7 @@ from sklearn.neighbors import NearestNeighbors
 # change n_neighbors and leaf_size according to actual situations
 nsn = NearestNeighbors(n_neighbors=1, leaf_size=1, metric="cosine")
 
-nsn.fit(ath_reprs)
+nsn.fit(reprs)
 
 
 ############################################
