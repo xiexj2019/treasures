@@ -92,6 +92,9 @@ def compute_average_vector(tokens, pretrained_vectors, embedding_size):
         try:
             average_vector.append(pretrained_vectors[token])
         except:
+            if not token.strip():
+                continue
+                
             print("miss match [", token, "]")
             
     return (np.array(average_vector).mean(axis=0) 
