@@ -156,7 +156,9 @@ def get_common_content(str_a, str_b):
         content += str_a[index : index + length]
 
     return content
-    
+
+import random
+
 def normalize_cluster_title(elements):
     title = ""
     
