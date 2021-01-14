@@ -100,10 +100,6 @@ validset_size = int(0.1 * len(indices))
 validset_indices = indices[:validset_size]
 trainset_indices = indices[validset_size:]
 
-validset_size = int(0.1 * len(indices))
-validset_indices = indices[:validset_size]
-trainset_indices = indices[validset_size:]
-
 # [need]: from torch.utils.data import Subset
 valid_dataset = DataLoader(
     # should be created first because of train dataset
